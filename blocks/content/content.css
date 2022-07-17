@@ -1,0 +1,19 @@
+.content{
+    margin: 0 200px 0;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+@media screen and (max-width: 1060px) {
+    .content {
+        margin: 0px 100px 0px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .content {
+        margin: 0 19px 0; 
+        align-items: center;
+    }
+}

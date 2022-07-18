@@ -14,5 +14,6 @@
         flex-direction: column;
         max-width: 282px;
         min-height: 286px;
+        margin-bottom: 0;
     }
 }

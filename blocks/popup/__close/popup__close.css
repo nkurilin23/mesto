@@ -2,4 +2,13 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
+    background-color:  transparent;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -38px;
+    right: -38px;
 }

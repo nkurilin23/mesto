@@ -2,7 +2,7 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    background-color:  transparent;
+    background-color: transparent;
     border: none;
     display: flex;
     flex-direction: row;
@@ -11,4 +11,12 @@
     position: absolute;
     top: -38px;
     right: -38px;
+}
+
+@media screen and (max-width: 568px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+        top: -36px;
+    }
 }

@@ -1,7 +1,6 @@
 .popup__close-icon {
-    position: absolute;
-    right: -38px;
-    top: -38px;
+    width: 32px;
+    height: 32px;
 }
 
 .popup__close-icon:hover {
@@ -10,8 +9,6 @@
 
 @media screen and (max-width: 568px) {
     .popup__close-icon {
-        right: 0;
-        top: -36px;
         width: 20px;
         height: 20px;
     }

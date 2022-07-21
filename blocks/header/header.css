@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 45px 200px 40px;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
 @media screen and (max-width: 1060px) {
@@ -15,7 +16,7 @@
 
 @media screen and (max-width: 568px) {
     .header {
-        max-width: 320px;
+        min-width: 320px;
         min-height: 58px;
         margin: 28px 0 38px;
     }

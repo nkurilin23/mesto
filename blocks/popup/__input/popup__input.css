@@ -9,15 +9,19 @@
     font-size: 14px;
     line-height: 121%;
     padding: 0;
+    margin: 0 30px 36px;
 }
 
-.popup__input:focus{
+.popup__input:focus {
     outline: none;
 }
 
 @media screen and (max-width: 568px) {
     .popup__input {
         min-width: 238px;
-    
+        margin: 0 22px 30px;
     }
 }
+
+
+

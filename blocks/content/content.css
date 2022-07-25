@@ -5,15 +5,22 @@
    
 }
 
+@media screen and (max-width: 1279px) {
+    .content {
+        margin: 0px 180px 0px;
+    }
+}
+
 @media screen and (max-width: 1060px) {
     .content {
         margin: 0px 100px 0px;
     }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 780px) {
     .content {
         margin: 0 19px 0;
         align-items: center;
     }
 }
+

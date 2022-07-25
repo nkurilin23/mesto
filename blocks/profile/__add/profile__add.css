@@ -10,13 +10,14 @@
     cursor: pointer;
     background-color: black;
     padding: 0;
+    margin-left: 10px;
 }
 
 .profile__add:hover {
     opacity: 0.6;
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 780px) {
     .profile__add {
         min-width: 282px;
         min-height: 50px;

@@ -9,6 +9,13 @@
     overflow: hidden;
 }
 
+@media screen and (max-width: 780px) {
+    .profile__info-job {
+        text-align: center;
+
+    }
+}
+
 @media screen and (max-width: 568px) {
     .profile__info-job {
         font-size: 14px;

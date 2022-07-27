@@ -3,6 +3,12 @@
     flex-direction: row;
 }
 
+@media screen and (max-width: 780px) {
+    .profile__info {
+        margin-top: 22.25px;
+    }
+}
+
 @media screen and (max-width: 568px) {
     .profile__info {
         margin-top: 22.25px;

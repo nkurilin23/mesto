@@ -33,7 +33,7 @@ function save() {
 // Отправка формы
 
 formElement.addEventListener('submit', function (evt) {
+    evt.preventDefault()
     save();
     closePopup();
-    evt.preventDefault()
-  });
+});

@@ -35,6 +35,9 @@
         <section class="elements">
             <div class="elements__element">
                 <img src="./images/image1.jpeg" alt="Фото" class="elements__photo">
+                <button class="elemеnt__delete" type="button">
+                    <img src="./images/Vector.svg" alt="Кнопка удаления карточки" class="elemеnt__delete-button" type="button">
+                </button>
                 <div class="elements__content">
                     <h2 class="elements__text">Барселона, Испания</h2>
                     <button class="elements__like" type="button"></button>
@@ -70,6 +73,7 @@
             </div>
             <div class="elements__element">
                 <img src="./images/image6.jpeg" alt="Фото" class="elements__photo">
+
                 <div class="elements__content">
                     <h2 class="elements__text">Ватикан</h2>
                     <button class="elements__like" type="button"></button>
@@ -80,8 +84,8 @@
     <footer class="footer">
         <p class="footer__logo">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
-        <div class="popup__content">
+    <div class="popup" id="popup_edit">
+        <div class="popup__content" id="content_edit">
             <button class="popup__close" type="button">
                 <img src="./images/Close_Icon.svg" alt="Кнопка закрытия окна редактирования" class="popup__close-icon">
             </button>
@@ -90,6 +94,19 @@
                 <input type="text" class="popup__input" placeholder="Имя" id="name" name="user_name">
                 <input type="text" class="popup__input" placeholder="Работа" id="job" name="user_job">
                 <button class="popup__save" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup_photo">
+        <div class="popup__content" id="content_photo">
+            <button class="popup__close" type="button">
+                <img src="./images/Close_Icon.svg" alt="Кнопка закрытия окна добавления" class="popup__close-icon">
+            </button>
+            <form class="popup__form" name="popupForm" method="post">
+                <h2 class="popup__title">Новое место</h2>
+                <input type="text" class="popup__input" placeholder="Название" id="comment" name="pic_name">
+                <input type="text" class="popup__input" placeholder="Ссылка на картинку" id="url" name="pic_url">
+                <button class="popup__save" type="submit">Создать</button>
             </form>
         </div>
     </div>

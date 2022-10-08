@@ -62,31 +62,31 @@ popupCloseButtonAdd.addEventListener('click', closePopupAdd);
 
 // Массив первично расположенных элементов
 const initialCards = [
-  {
-    name: 'Барселона',
-    link: './images/image6.jpeg'
-  },
-  {
-    name: 'Венеция',
-    link: './images/image2.jpeg'
-  },
-  {
-    name: 'Озеро Гарда',
-    link: './images/image3.jpeg'
-  },
-  {
-    name: 'Флоренция',
-    link: './images/image4.jpeg'
-  },
-  {
-    name: 'Тосса де Мар',
-    link: './images/image5.jpeg'
-  },
-  {
-    name: 'Ватикан',
-    link: './images/image6.jpeg'
-  }
-]; 
+    {
+        name: 'Барселона',
+        link: './images/image6.jpeg'
+    },
+    {
+        name: 'Венеция',
+        link: './images/image2.jpeg'
+    },
+    {
+        name: 'Озеро Гарда',
+        link: './images/image3.jpeg'
+    },
+    {
+        name: 'Флоренция',
+        link: './images/image4.jpeg'
+    },
+    {
+        name: 'Тосса де Мар',
+        link: './images/image5.jpeg'
+    },
+    {
+        name: 'Ватикан',
+        link: './images/image6.jpeg'
+    }
+];
 
 // Созданиие новой карточки с фотографиями
 const section = document.querySelector('.elements');
@@ -97,15 +97,31 @@ function render() {
     initialCards.forEach(renderElements)
 }
 
-function renderElements(cards){
+function renderElements(cards) {
     const newHtmlElement = elementTemplate.cloneNode(true);
     const cardText = newHtmlElement.querySelector('.elements__text');
     const cardPhoto = newHtmlElement.querySelector('.elements__photo');
     cardText.textContent = cards.name;
     cardPhoto.src = cards.link;
-    // setListenersForCard(newHtmlElement);
+
+    setListenersForCard(newHtmlElement);
     section.appendChild(newHtmlElement);
 }
+
+function setListenersForCard(element) {
+    const deleteButton = element.querySelector('.elemеnts__delete');
+    deleteButton.addEventListener('click', cardDelete);
+
+    // const likeButton = element.querySelector('.elements__like');
+    // likeButton.addEventListener('click', like);
+}
+
+function cardDelete(event) {
+    const currentElementItem = event.target.closest('.elements__element');
+    currentElementItem.remove();
+
+}
+
 
 
 render();

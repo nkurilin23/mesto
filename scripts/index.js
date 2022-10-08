@@ -49,13 +49,63 @@ let urlInput = popupAddPhoto.querySelector('#url');
 let photoName = elementAdd.querySelector('.elements__text')
 
 //Открытие / закрытие попапа добавления фотографий
-const openPopupAdd= function () {
+const openPopupAdd = function () {
     // commentInput.value = photoName.textContent;
-     // urlInput.value = urlInput.textContent;
-     popupAddPhoto.classList.add('popup_is-opened');
+    // urlInput.value = urlInput.textContent;
+    popupAddPhoto.classList.add('popup_is-opened');
 };
- popupButtonAdd.addEventListener('click', openPopupAdd);
-  const closePopupAdd = function () {
+popupButtonAdd.addEventListener('click', openPopupAdd);
+const closePopupAdd = function () {
     popupAddPhoto.classList.remove('popup_is-opened');
- };
- popupCloseButtonAdd.addEventListener('click', closePopupAdd);
+};
+popupCloseButtonAdd.addEventListener('click', closePopupAdd);
+
+// Массив первично расположенных элементов
+const initialCards = [
+  {
+    name: 'Барселона',
+    link: './images/image6.jpeg'
+  },
+  {
+    name: 'Венеция',
+    link: './images/image2.jpeg'
+  },
+  {
+    name: 'Озеро Гарда',
+    link: './images/image3.jpeg'
+  },
+  {
+    name: 'Флоренция',
+    link: './images/image4.jpeg'
+  },
+  {
+    name: 'Тосса де Мар',
+    link: './images/image5.jpeg'
+  },
+  {
+    name: 'Ватикан',
+    link: './images/image6.jpeg'
+  }
+]; 
+
+// Созданиие новой карточки с фотографиями
+const section = document.querySelector('.elements');
+const elementTemplate = document.querySelector('.elements__element-template').content;
+const newElementButton = document.querySelector('.popup__save');
+
+function render() {
+    initialCards.forEach(renderElements)
+}
+
+function renderElements(cards){
+    const newHtmlElement = elementTemplate.cloneNode(true);
+    const cardText = newHtmlElement.querySelector('.elements__text');
+    const cardPhoto = newHtmlElement.querySelector('.elements__photo');
+    cardText.textContent = cards.name;
+    cardPhoto.src = cards.link;
+    // setListenersForCard(newHtmlElement);
+    section.appendChild(newHtmlElement);
+}
+
+
+render();

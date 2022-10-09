@@ -23,44 +23,20 @@ const closePopup = function () {
 };
 popupCloseButtonElement.addEventListener('click', closePopup);
 
-// Работа полей попапа
 function save() {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 }
 
-// Отправка формы
+// Отправка форм
 formElement.addEventListener('submit', function (evt) {
     evt.preventDefault()
     save();
     closePopup();
+    
 });
 
-// Переменные попапа добавления фотографии
-const popupAddPhoto = document.querySelector('#popup_photo');
-const popupCloseButtonAdd = popupAddPhoto.querySelector('.popup__close-icon');
-let formAdd = popupAddPhoto.querySelector('.popup__form');
-
-// Переменные данных фотографии
-const elementAdd = document.querySelector('.elements');
-const popupButtonAdd = profileElement.querySelector('.profile__add');
-let commentInput = popupAddPhoto.querySelector('#comment');
-let urlInput = popupAddPhoto.querySelector('#url');
-let photoName = elementAdd.querySelector('.elements__text')
-
-//Открытие / закрытие попапа добавления фотографий
-const openPopupAdd = function () {
-    // commentInput.value = photoName.textContent;
-    // urlInput.value = urlInput.textContent;
-    popupAddPhoto.classList.add('popup_is-opened');
-};
-popupButtonAdd.addEventListener('click', openPopupAdd);
-const closePopupAdd = function () {
-    popupAddPhoto.classList.remove('popup_is-opened');
-};
-popupCloseButtonAdd.addEventListener('click', closePopupAdd);
-
-// Массив первично расположенных элементов
+// Загрузка первичных карточек
 const initialCards = [
     {
         name: 'Барселона',
@@ -88,17 +64,15 @@ const initialCards = [
     }
 ];
 
-// Созданиие новой карточки с фотографиями
 const section = document.querySelector('.elements');
-const elementTemplate = document.querySelector('.elements__element-template').content;
-const newElementButton = document.querySelector('.popup__save');
+const cardsTemplate = document.querySelector('.elements__element-template').content;
 
 function render() {
-    initialCards.forEach(renderElements)
+    initialCards.forEach(renderCards)
 }
 
-function renderElements(cards) {
-    const newHtmlElement = elementTemplate.cloneNode(true);
+function renderCards(cards) {
+    const newHtmlElement = cardsTemplate.cloneNode(true);
     const cardText = newHtmlElement.querySelector('.elements__text');
     const cardPhoto = newHtmlElement.querySelector('.elements__photo');
     cardText.textContent = cards.name;
@@ -108,20 +82,56 @@ function renderElements(cards) {
     section.appendChild(newHtmlElement);
 }
 
+//Cоздание новой карточки фотографий
+const popupAddPhoto = document.querySelector('#popup_photo');
+let newPhotoForm = popupAddPhoto.querySelector('.popup__form')
+const popupCloseButtonAdd = popupAddPhoto.querySelector('.popup__close-icon');
+const popupButtonAdd = profileElement.querySelector('.profile__add');
+const createNewCardButton = popupAddPhoto.querySelector('.popup__save')
+createNewCardButton.addEventListener('click', addCard);
+let inputName = popupAddPhoto.querySelector('#name');
+let inputLink = popupAddPhoto.querySelector('#url');
+
+function addCard() {
+    renderCards({
+        name: inputName.value,
+        link: inputLink.value,
+    });
+}
+
+//Удаление карточек и лайки фотографий
 function setListenersForCard(element) {
     const deleteButton = element.querySelector('.elemеnts__delete');
     deleteButton.addEventListener('click', cardDelete);
 
-    // const likeButton = element.querySelector('.elements__like');
-    // likeButton.addEventListener('click', like);
+    const likeButton = element.querySelector('.elements__like');
+    likeButton.addEventListener('click', cardLike);
 }
 
 function cardDelete(event) {
     const currentElementItem = event.target.closest('.elements__element');
     currentElementItem.remove();
-
 }
 
+function cardLike(event) {
+    const currentElementItem = event.target.closest('.elements__like');
+    currentElementItem.classList.add('elements__like_active');
+}
 
+//Открытие / закрытие попапа добавления фотографий
+function openPopupAdd() {
+    popupAddPhoto.classList.add('popup_is-opened');
+}
+popupButtonAdd.addEventListener('click', openPopupAdd);
+function closePopupAdd() {
+    popupAddPhoto.classList.remove('popup_is-opened');
+}
+popupCloseButtonAdd.addEventListener('click', closePopupAdd);
 
 render();
+
+// Отправка форм
+newPhotoForm.addEventListener('submit', function (evtAdd) {
+    evtAdd.preventDefault();
+    closePopupAdd();
+    });

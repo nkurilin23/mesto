@@ -1,6 +1,14 @@
 .elements__like_active {
-    opacity: 1;
-    background: url(../../../../images/like_active.svg);
+    background-image: url(../../../../images/like_active.svg);
+    width: 22px;
+    height: 19px;
+    border: none;
+    background-size: 100%;
+    cursor: pointer;
+    padding: 0;
+    background-color: white;
     background-position: center;
     background-repeat: no-repeat;
-  }
+    margin-right: 5px;
+   }
+  

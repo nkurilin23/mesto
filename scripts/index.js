@@ -134,7 +134,6 @@ function openPhoto(cards) {
 
 // Создание карточки
 function createCard(cards) {
-    console.log(cards)
     const newHtmlElement = cardsTemplate.cloneNode(true);
     const cardText = newHtmlElement.querySelector('.elements__text');
     const cardPhoto = newHtmlElement.querySelector('.elements__photo');
@@ -156,7 +155,14 @@ function addCard() {
         name: inputName.value,
         link: inputLink.value,
     });
-    section.append(newCards2); 
+    section.prepend(newCards2); 
+    reset ();
+ }
+
+ //Очистка полей формы после добавления карточки
+ function reset () {
+   inputName.value = "";  
+   inputLink.value = "";   
 }
 
 // Отправка форм попапа новой карточки

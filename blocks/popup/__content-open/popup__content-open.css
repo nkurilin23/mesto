@@ -1,8 +1,15 @@
 .popup__content-open {
-    width: 430px;
+    max-width: 816px;
     margin: 0;
     position: relative;
+    display: flex;
 }
+
+/* @media screen and (max-width: 840px) {
+    .popup__content-open {
+        max-width: 240px;
+    }
+} */
 
 @media screen and (max-width: 568px) {
     .popup__content-open {

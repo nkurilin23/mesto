@@ -10,6 +10,8 @@
     position: absolute;
     background-color: transparent;
     background-image: url('../../../images/trash.svg');
+    opacity: 1;
+    transition: opacity 0.5s linear 0s;
 }
 
 .elemеnts__delete:hover {

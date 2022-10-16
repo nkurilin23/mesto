@@ -11,6 +11,8 @@
     background-color: black;
     padding: 0;
     margin-left: 10px;
+    opacity: 1;
+    transition: opacity 0.5s linear 0s;
 }
 
 .profile__add:hover {

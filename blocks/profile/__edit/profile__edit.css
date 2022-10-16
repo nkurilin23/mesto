@@ -10,6 +10,8 @@
        cursor: pointer;
        border: 1px solid #FFFFFF;
        padding: 0;
+       opacity: 1;
+       transition: opacity 0.5s linear 0s;
 }
 
 .profile__edit:hover {

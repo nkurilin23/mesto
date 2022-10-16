@@ -43,7 +43,7 @@ const newPhotoForm = popupAddPhoto.querySelector('.popup__form')
 const popupCloseButtonAdd = popupAddPhoto.querySelector('.popup__close-icon'); // закртия добавления карточки
 const popupButtonAdd = profileElement.querySelector('.profile__add'); // открытия добавления карточки
 const createNewCardButton = popupAddPhoto.querySelector('.popup__save') // сохранения добавленной карточки
-let inputName = popupAddPhoto.querySelector('#name');
+let inputName = popupAddPhoto.querySelector('#text');
 let inputLink = popupAddPhoto.querySelector('#url');
 
 //Переменные попапа открытия фотографии

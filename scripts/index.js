@@ -39,7 +39,7 @@ const profileJob = profileElement.querySelector('.profile__info-job');
 
 //Переменные добавления новой карточки
 const popupAddPhoto = document.querySelector('#popup_photo');
-const newPhotoForm = popupAddPhoto.querySelector('.popup__form')
+const newPhotoForm = popupAddPhoto.querySelector('.popup__form');
 const popupCloseButtonAdd = popupAddPhoto.querySelector('.popup__close-icon'); // закртия добавления карточки
 const popupButtonAdd = profileElement.querySelector('.profile__add'); // открытия добавления карточки
 const createNewCardButton = popupAddPhoto.querySelector('.popup__save'); // сохранения добавленной карточки
@@ -51,7 +51,6 @@ const popupOpenPhoto = document.querySelector('#popup_open');
 const popupCloseButtonPhoto = popupOpenPhoto.querySelector('.popup__close-icon'); // закрытия попапа с фотографией
 const popupImage = popupOpenPhoto.querySelector('.popup__opened-photo');
 const popupText = popupOpenPhoto.querySelector('.popup__photo-name');
-const photoAlt = popupOpenPhoto.querySelector('.popup__opened-photo');
 
 //Переменные для создания первичной страницы с карточками
 const section = document.querySelector('.elements');
@@ -70,7 +69,7 @@ function closePopup(modalPopup) {
 // открыть ред профиля
 popupOpenButtonElementEdit.addEventListener('click', () => {
     openPopup(popupElementEdit),
-        nameInput.value = profileName.textContent; // имя профиля
+    nameInput.value = profileName.textContent; // имя профиля
     jobInput.value = profileJob.textContent; // работа профиля
 });
 
@@ -124,14 +123,15 @@ function createCard(card) {
     const cardText = newHtmlElement.querySelector('.elements__text');
     const cardPhoto = newHtmlElement.querySelector('.elements__photo');
     cardText.textContent = card.name;
-    cardPhoto.src = card.link
+    cardPhoto.src = card.link;
+    cardPhoto.alt = card.name;
     setListenersForCard(newHtmlElement, card);
     return newHtmlElement;
 }
 
 // Отрисовка карточки
 function render(card) {
-    const newCards = createCard(card)
+    const newCards = createCard(card);
     section.append(newCards);
 }
 
@@ -172,7 +172,7 @@ function likeCard(event) {
 function openPhoto(card) {
     popupImage.src = card.link;
     popupText.textContent = card.name;
-    photoAlt.alt = card.name;
+    popupImage.alt = card.name;
     openPopup(popupOpenPhoto);
 }
 

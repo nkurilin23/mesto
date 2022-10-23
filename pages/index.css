@@ -48,8 +48,16 @@
 @import url(../blocks/popup/__opened-photo/popup__opened-photo.css);
 @import url(../blocks/popup/__photo-name/popup__photo-name.css);
 @import url(../blocks/popup/_black/popup_black.css);
+@import url(../blocks/popup/__input/_type_job/popup__input_type_job.css);
+@import url(../blocks/popup/__input/_type_name/popup__input_type_name.css);
+@import url(../blocks/popup/__input/_type_photo/popup__input_type_photo.css);
+@import url(../blocks/popup/__input/_type_url/popup__input_type_url.css);
+@import url(../blocks/popup/__save/_disabled/popup__save_disabled.css);
+@import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
 
+@import url(../blocks/error/error.css);
 
-
-
-
+@import url(../blocks/job-error/job-error.css);
+@import url(../blocks/name-error/name-error.css);
+@import url(../blocks/text-error/text-error.css);
+@import url(../blocks/url-error/url-error.css);

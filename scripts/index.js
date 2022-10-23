@@ -69,7 +69,7 @@ function closePopup(modalPopup) {
 // открыть ред профиля
 popupOpenButtonElementEdit.addEventListener('click', () => {
     openPopup(popupElementEdit),
-    nameInput.value = profileName.textContent; // имя профиля
+        nameInput.value = profileName.textContent; // имя профиля
     jobInput.value = profileJob.textContent; // работа профиля
 });
 
@@ -90,6 +90,13 @@ function saveProfileData() {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 }
+
+// const closePopupByOverlay = function (event) {
+//     if (event.target !== event.currentTarget) {
+//         return;
+//     }
+//     closePopup(popupElementEdit);
+// }
 
 // Отправка форм данных профиля
 formElementEdit.addEventListener('submit', function (evt) {
@@ -177,3 +184,5 @@ function openPhoto(card) {
 }
 
 initialCards.forEach(render);
+
+

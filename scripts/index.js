@@ -36,6 +36,8 @@ const nameInput = popupElementEdit.querySelector('#name');
 const jobInput = popupElementEdit.querySelector('#job');
 const profileName = profileElement.querySelector('.profile__info-name');
 const profileJob = profileElement.querySelector('.profile__info-job');
+const popupElement = document.querySelector('.popup');
+
 
 //Переменные добавления новой карточки
 const popupAddPhoto = document.querySelector('#popup_photo');
@@ -51,6 +53,7 @@ const popupOpenPhoto = document.querySelector('#popup_open');
 const popupCloseButtonPhoto = popupOpenPhoto.querySelector('.popup__close-icon'); // закрытия попапа с фотографией
 const popupImage = popupOpenPhoto.querySelector('.popup__opened-photo');
 const popupText = popupOpenPhoto.querySelector('.popup__photo-name');
+
 
 //Переменные для создания первичной страницы с карточками
 const section = document.querySelector('.elements');
@@ -68,10 +71,32 @@ function closePopup(modalPopup) {
 
 // открыть ред профиля
 popupOpenButtonElementEdit.addEventListener('click', () => {
-    openPopup(popupElementEdit),
-        nameInput.value = profileName.textContent; // имя профиля
+    openPopup(popupElementEdit);
+    nameInput.value = profileName.textContent; // имя профиля
     jobInput.value = profileJob.textContent; // работа профиля
 });
+
+// Закрытие по Esc
+document.addEventListener('keydown', function (evt) {
+    if (evt.key == "Escape") {  
+        closePopup(popupElementEdit);
+        closePopup(popupAddPhoto);
+        closePopup(popupOpenPhoto);
+    }
+});
+
+//закрытие по оверлею
+function closePopupByOverlay(evt) {
+    if (evt.target !== evt.currentTarget) {
+        return;
+    }
+    evt.currentTarget.classList.remove('popup_is-opened');
+}
+
+popupElementEdit.addEventListener('click', closePopupByOverlay);
+popupAddPhoto.addEventListener('click', closePopupByOverlay);
+popupOpenPhoto.addEventListener('click', closePopupByOverlay);
+
 
 // закрыть ред профиля
 popupCloseButtonElementEdit.addEventListener('click', () => closePopup(popupElementEdit));
@@ -89,14 +114,8 @@ popupCloseButtonPhoto.addEventListener('click', () => closePopup(popupOpenPhoto)
 function saveProfileData() {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-}
+};
 
-// const closePopupByOverlay = function (event) {
-//     if (event.target !== event.currentTarget) {
-//         return;
-//     }
-//     closePopup(popupElementEdit);
-// }
 
 // Отправка форм данных профиля
 formElementEdit.addEventListener('submit', function (evt) {
@@ -184,5 +203,4 @@ function openPhoto(card) {
 }
 
 initialCards.forEach(render);
-
 

@@ -95,11 +95,17 @@
             </button>
             <form class="popup__form" name="user" method="post" novalidate>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" class="popup__input" minlength="2" maxlength="40" placeholder="Имя" id="name" name="user_name" required>
-                <span class="name-error"></span>
-                <input type="text" class="popup__input" minlength="2" maxlength="200" placeholder="Работа" id="job" name="user_job" required>
-                <span class="job-error"></span>
-                <button class="popup__save" type="submit">Сохранить</button>
+                <section class="popup__section">
+                    <input type="text" class="popup__input" minlength="2" maxlength="40" placeholder="Имя" id="name"
+                        name="user_name" required>
+                    <span class="text-error" id="name-error"></span>
+                </section>
+                <section class="popup__section">
+                    <input type="text" class="popup__input" minlength="2" maxlength="200" placeholder="Работа" id="job"
+                        name="user_job" required>
+                    <span class="text-error" id="job-error"></span>
+                </section>
+                <button class="popup__save" type="submit" disabled="true">Сохранить</button>
             </form>
         </div>
     </div>
@@ -110,11 +116,17 @@
             </button>
             <form class="popup__form" name="add" method="post" novalidate>
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" class="popup__input" minlength="2" maxlength="30" placeholder="Название" id="text" name="pic_name" required>
-                <span class="text-error"></span>
-                <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="url" name="pic_url" required>
-                <span class="url-error"></span>
-                <button class="popup__save" type="submit">Создать</button>
+                <section class="popup__section">
+                    <input type="text" class="popup__input" minlength="2" maxlength="30" placeholder="Название"
+                        id="text" name="pic_name" required>
+                    <span class="text-error" id="text-error"></span>
+                </section>
+                <section class="popup__section">
+                    <input type="url" class="popup__input" placeholder="Ссылка на картинку" id="url" name="pic_url"
+                        required>
+                    <span class="text-error" id="url-error"></span>
+                </section>
+                <button class="popup__save" type="submit" disabled="true">Создать</button>
             </form>
         </div>
     </div>

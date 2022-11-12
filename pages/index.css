@@ -55,10 +55,5 @@
 @import url(../blocks/popup/__save/_disabled/popup__save_disabled.css);
 @import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
 @import url(../blocks/popup/__section/popup__section.css);
+@import url(../blocks/popup/__input-text-error/popup__input-text-error.css);
 
-@import url(../blocks/error/error.css);
-
-@import url(../blocks/job-error/job-error.css);
-@import url(../blocks/name-error/name-error.css);
-@import url(../blocks/text-error/text-error.css);
-@import url(../blocks/url-error/url-error.css);

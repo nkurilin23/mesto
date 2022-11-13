@@ -1,3 +1,4 @@
+//объект с используемыми классами
 const selectors = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -5,9 +6,6 @@ const selectors = {
     inactiveButtonClass: 'popup__save_disabled',
     inputErrorClass: 'popup__input_type_error',
 };
-
-const formElement = document.querySelector(selectors.formSelector);
-const inputElement = formElement.querySelector(selectors.inputSelector);
 
 //показать ошибку
 const showError = (formElement, inputElement, selectors) => {

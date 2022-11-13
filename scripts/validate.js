@@ -6,8 +6,6 @@ const selectors = {
     inputErrorClass: 'popup__input_type_error',
 };
 
-console.log(selectors.inputErrorClass);
-
 const formElement = document.querySelector(selectors.formSelector);
 const inputElement = formElement.querySelector(selectors.inputSelector);
 
@@ -32,7 +30,7 @@ const checkInputValidity = (formElement, inputElement, selectors) => {
     }
     else {
         hideError(formElement, inputElement, selectors);
-    }   
+    }
 };
 
 //события на всех полях
@@ -55,7 +53,7 @@ enableValidation = (selectors) => {
         setEventListener(formElement, selectors);
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault()
-                    });
+        });
     });
 };
 
@@ -69,7 +67,7 @@ const hasInvalidInput = (inputList) => {
 //кнопки
 const toggleButtonState = (inputList, buttonElement, selectors) => {
     if (hasInvalidInput(inputList)) {
-        
+
         buttonElement.setAttribute('disabled', true);
         buttonElement.classList.add(selectors.inactiveButtonClass);
     }

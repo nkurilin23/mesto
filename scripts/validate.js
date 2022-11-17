@@ -76,3 +76,9 @@ const toggleButtonState = (inputList, buttonElement, selectors) => {
 };
 
 enableValidation(selectors);
+
+//дизейбл кнопки
+// function disableSubmitButton (selectors) {
+//     createNewCardButton.setAttribute('disabled', true);
+//     createNewCardButton.classList.add(selectors.inactiveButtonClass);
+// }

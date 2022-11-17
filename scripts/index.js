@@ -43,7 +43,6 @@ const popupAddPhoto = document.querySelector('#popup_photo');
 const newPhotoForm = popupAddPhoto.querySelector('.popup__form');
 const popupCloseButtonAdd = popupAddPhoto.querySelector('.popup__close-icon'); // закртия добавления карточки
 const popupButtonAdd = profileElement.querySelector('.profile__add'); // открытия добавления карточки
-const createNewCardButton = popupAddPhoto.querySelector('.popup__save'); // сохранения добавленной карточки
 const inputName = popupAddPhoto.querySelector('#text');
 const inputLink = popupAddPhoto.querySelector('#url');
 
@@ -66,6 +65,7 @@ function openPopup(modalPopup) {
 // Функция закрытия попапа
 function closePopup(modalPopup) {
     modalPopup.classList.remove('popup_is-opened');
+    document.removeEventListener('keydown', close);
 }
 
 // открыть ред профиля
@@ -86,7 +86,6 @@ function closePopupByEsc() {
             return
         }
         closePopup(openedPopup);
-        document.removeEventListener('keydown', close);
     }
     document.addEventListener('keydown', close);
 }
@@ -181,8 +180,6 @@ function addCard() {
 function reset() {
     inputName.value = "";
     inputLink.value = "";
-    createNewCardButton.setAttribute('disabled', true);
-    createNewCardButton.classList.add(selectors.inactiveButtonClass);
 }
 
 // Отправка форм попапа новой карточки

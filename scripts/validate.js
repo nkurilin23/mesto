@@ -44,7 +44,7 @@ const setEventListener = (formElement, selectors) => {
     });
 };
 
-//отлов событий на всех формах
+//отправка форм
 enableValidation = (selectors) => {
     const formList = Array.from(document.querySelectorAll(selectors.formSelector));
     formList.forEach((formElement) => {

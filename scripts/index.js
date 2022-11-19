@@ -63,7 +63,7 @@ function openPopup(modalPopup) {
 }
 
 // Функция закрытия попапа
-function closePopup(modalPopup, selectors) {
+function closePopup(modalPopup) {
     modalPopup.classList.remove('popup_is-opened');
     document.removeEventListener('keydown', closePopupByEsc);
 }

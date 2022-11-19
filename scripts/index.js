@@ -59,13 +59,13 @@ const cardsTemplate = document.querySelector('.elements__element-template').cont
 //Открытие и закрытие попапов редактирования профиля и добавления карточки
 function openPopup(modalPopup) {
     modalPopup.classList.add('popup_is-opened'); // функциия открытия попапа
-    closePopupByEsc();
+    document.addEventListener('keydown', closePopupByEsc);
 }
 
 // Функция закрытия попапа
-function closePopup(modalPopup) {
+function closePopup(modalPopup, selectors) {
     modalPopup.classList.remove('popup_is-opened');
-    document.removeEventListener('keydown', close);
+    document.removeEventListener('keydown', closePopupByEsc);
 }
 
 // открыть ред профиля
@@ -76,18 +76,15 @@ popupOpenButtonElementEdit.addEventListener('click', () => {
 });
 
 // Закрытие по Esc
-function closePopupByEsc() {
-    const close = function (evt) {
-        if (evt.key !== "Escape") {
-            return
-        }
-        const openedPopup = document.querySelector('.popup_is-opened')
-        if (!openedPopup) {
-            return
-        }
-        closePopup(openedPopup);
+function closePopupByEsc(evt) {
+    if (evt.key !== "Escape") {
+        return
     }
-    document.addEventListener('keydown', close);
+    const openedPopup = document.querySelector('.popup_is-opened')
+    if (!openedPopup) {
+        return
+    }
+    closePopup(openedPopup);
 }
 
 //закрытие по оверлею
@@ -120,7 +117,6 @@ function saveProfileData() {
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
 };
-
 
 // Отправка форм данных профиля
 formElementEdit.addEventListener('submit', function (evt) {
@@ -208,4 +204,3 @@ function openPhoto(card) {
 }
 
 initialCards.forEach(renderCard);
-

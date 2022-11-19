@@ -21,7 +21,7 @@ const hideError = (formElement, inputElement, selectors) => {
     inputErrorClass.textContent = " ";
 };
 
-//проверка валидности и вызов ошибок
+//проверка валидности полей и вызов ошибок на полях
 const checkInputValidity = (formElement, inputElement, selectors) => {
     if (!inputElement.validity.valid) {
         showError(formElement, inputElement, selectors)
@@ -44,28 +44,28 @@ const setEventListener = (formElement, selectors) => {
     });
 };
 
-//формы
+//отлов событий на всех формах
 enableValidation = (selectors) => {
     const formList = Array.from(document.querySelectorAll(selectors.formSelector));
     formList.forEach((formElement) => {
         setEventListener(formElement, selectors);
         formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault()
+            evt.preventDefault();
+            disableSubmitButton(formElement, selectors);
         });
-    });
+    }); 
 };
 
-//проверка полей
+//проверка валиности полей для проверки активности кнопок отправки форм
 const hasInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
         return !inputElement.validity.valid;
     });
 };
 
-//кнопки
+//активность кнопок отправки форм
 const toggleButtonState = (inputList, buttonElement, selectors) => {
     if (hasInvalidInput(inputList)) {
-
         buttonElement.setAttribute('disabled', true);
         buttonElement.classList.add(selectors.inactiveButtonClass);
     }
@@ -75,10 +75,10 @@ const toggleButtonState = (inputList, buttonElement, selectors) => {
     }
 };
 
-enableValidation(selectors);
+// дизейбл кнопки для повторного открытия
+const disableSubmitButton = (formElement, selectors) => {
+    formElement.querySelector(selectors.submitButtonSelector).setAttribute('disabled', true);
+    formElement.querySelector(selectors.submitButtonSelector).classList.add(selectors.inactiveButtonClass);
+};
 
-//дизейбл кнопки
-// function disableSubmitButton (selectors) {
-//     createNewCardButton.setAttribute('disabled', true);
-//     createNewCardButton.classList.add(selectors.inactiveButtonClass);
-// }
+enableValidation(selectors);
